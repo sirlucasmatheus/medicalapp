@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <%= form_with(model: paciente, local: true) do |form| %>
+    <% if paciente.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+        <ul>
+          <% paciente.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <form>
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <div class="field">
+            <%= form.label :nome %>
+            <%= form.text_field :nome, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <div class="field">
+            <%= form.label :email %>
+            <%= form.text_field :email, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <div class="field">
+            <%= form.label :'Descrição do problema' %>
+            <%= form.text_area :problema, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+      </div>
+    </form>
+  <% end %>
+</div>
